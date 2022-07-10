@@ -36,8 +36,8 @@ public class ShapeDemo {
 		// index 2=c existing circle object
 		// index 3=new circle obj created
 		Circle[] carr = { c2, c3, c, new Circle(1) };// c2,c,c3 are the existing circle object
-		Circle[] carr1 = { new Circle(89), new Circle(15) };//array created with not null values
-		Circle[] carr2 = new Circle[3];//array created with size 3 with null values
+		Circle[] carr1 = { new Circle(89), new Circle(15) };// array created with not null values
+		Circle[] carr2 = new Circle[3];// array created with size 3 with null values
 		carr2[0] = new Circle(2);
 		carr2[1] = new Circle(22);
 		carr2[2] = new Circle(12);
@@ -48,15 +48,27 @@ public class ShapeDemo {
 
 			System.out.println("perimeter=" + carr[i].perimeter());
 		}
-			Shape s =new Circle(7);
-			Shape[] sarr= {s,new Circle(14),new Circle(12)};
-			for(int i=0;i<sarr.length;i++) {
-			System.out.println("area of circle="+sarr[i].area()+"\nperimeter of circle ="+sarr[i].perimeter());
-			
-			}
-		Shape[] op= {new Rect(12,14),new Rect(100,200),new Rect(130,12)};
-		for(int i=0;i<op.length;i++) {
-			System.out.println("area of rect="+op[i].area()+"\nperimeter of rect="+op[i].perimeter());
+		Shape s = new Circle(7);
+		Shape[] sarr = { s, new Circle(14), new Circle(12) };
+		for (int i = 0; i < sarr.length; i++) {
+			System.out.println("area of circle=" + sarr[i].area() + "\nperimeter of circle =" + sarr[i].perimeter());
+
+		}
+		Shape[] op = { new Rect(12, 14), new Rect(100, 200), new Rect(130, 12) };
+		for (int i = 0; i < op.length; i++) {
+			System.out.println("area of rect=" + op[i].area() + "\nperimeter of rect=" + op[i].perimeter());
+		}
+
+		Shape[] mixedShapes = new Shape[3];// shape array not Shape object
+		mixedShapes[0] = new Circle(3);// Circle is a Shape
+		mixedShapes[1] = new Rect(3, 4);// Rectangle is a Shape
+		mixedShapes[2] = new Circle(99);
+		for (int i = 0; i < mixedShapes.length; i++) {
+			System.out.println("Shape is " + mixedShapes[i].getClass());
+			System.out.println("area is=" + mixedShapes[i].area() + "\nperimeter is=" + mixedShapes[i].perimeter());
+			// System.out.println("radius is"+mixedShapes[i].getRadius());//we cannot call
+			// the method of sub class using super type referance
+			// getRadius() belongs to Circle class but mixedShape[i] is of shape type
 		}
 	}
 
