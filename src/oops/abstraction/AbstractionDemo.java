@@ -1,5 +1,10 @@
+
 package oops.abstraction;
 
+//abstraction means hiding unnecessary details and exposing only necessary information 
+// make class variable private i.e. POJO:Plain Old Java Object
+// provide public getter and setter to manipulate private variable 
+//abstract concrete classes  by creating interfaces i.e. programming to interface
 public class AbstractionDemo {
 
 	public static void main(String[] args) {
@@ -30,6 +35,8 @@ public class AbstractionDemo {
 		g.accelerete();
 		g.accelerete();
 
+		Vehicle v = new GoodCar();// reference type is vehicle (interface)
+		v.move();
 	}
 
 }
@@ -39,12 +46,13 @@ class BadCar {
 
 }
 
-class GoodCar {
+class GoodCar implements Vehicle {
 	private int engineCapacity;
 
 	private char gear;// R,N,D
-	public GoodCar(){
-		gear='N';
+
+	public GoodCar() {
+		gear = 'N';
 	}
 
 	public void setEngineCapacity(int capacity) {
@@ -68,7 +76,16 @@ class GoodCar {
 		} else if (gear == 'D') {
 			System.out.println("driving");
 		} else {
-			System.out.println("invaild character"+gear);
+			System.out.println("invaild character" + gear);
 		}
 	}
+
+	public void move() {
+		accelerete();
+	}
+}
+
+interface Vehicle {
+
+	void move();
 }
