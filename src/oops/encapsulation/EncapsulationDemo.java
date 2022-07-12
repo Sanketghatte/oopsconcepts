@@ -6,6 +6,9 @@ import java.io.Console;
 public class EncapsulationDemo {
 
 	public static void main(String[] args) {
+		//class Person encapsulates all attributes and behavior related to a logical entity(person)
+		//but in main1() , all variables are scattered through out and easy to manipulate 
+		//non encapsulated code is clumsy and error prone
 		Person sanket = new Person("sanket", "ghatte", 18, "address", "address2", "solapur", "MH");
 		System.out.println(sanket.getFirstName());
 		System.out.println(sanket.getLastName());
